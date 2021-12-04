@@ -1,0 +1,38 @@
+const pad = (n) => (n < 10 ? `0${n}` : n);
+
+const format = (t) => {
+  const hours = t.getUTCHours();
+  const minutes = t.getUTCMinutes();
+  const seconds = t.getUTCSeconds();
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+};
+
+function Clock({ lastUpdate, light }) {
+  console.log("rendering Clock...");
+  console.log(`light = ${light}`);
+  return (
+    <div className={light ? "light" : "purple"}>
+      {format(new Date(lastUpdate))}
+      {console.log("rendering Clock...")}
+      {console.log(`light = ${light}`)}
+      {}
+      <style jsx>{`
+        div {
+          padding: 15px;
+          display: inline-block;
+          color: #82fa58;
+          font: 50px menlo, monaco, monospace;
+          background-color: #000;
+        }
+        .light {
+          background-color: #999;
+        }
+        .purple {
+          background-color: #82f;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+export default Clock;
